@@ -203,6 +203,23 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  arr.sort((a, b) => {
+    if (a.lastName < b.lastName) {
+      return -1;
+    } else if (a.lastName > b.lastName) return 1;
+    else if (a.lastName === b.lastName) {
+      if (a.firstName < b.firstName) {
+        return -1;
+      } else if (a.firstName > b.firstName) return 1;
+      else if (a.firstName === b.firstName) {
+        if (a.age < b.age) {
+          return -1;
+        } else if (a.age > b.age) return 1;
+        else return 0;
+      }
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -229,6 +246,23 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  let sorter = {
+    "Monday": 1,
+    "Tuesday": 2,
+    "Wednesday": 3,
+    "Thursday": 4,
+    "Friday": 5,
+    "Saturday": 6,
+    "Sunday": 7
+  };
+  arr.sort((a, b) => {
+    let day1 = a.dayOfWeek;
+    let day2 = b.dayOfWeek;
+    return sorter[day1] - sorter[day2];
+  });
+  return arr;
+  //NOTE : This is the link of the solution (https://stackoverflow.com/questions/34066752/sort-object-of-weekdays-like-sunday-monday-saturday)
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -243,6 +277,46 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  let sorter = {
+    "Monday": 1,
+    "Tuesday": 2,
+    "Wednesday": 3,
+    "Thursday": 4,
+    "Friday": 5,
+    "Saturday": 6,
+    "Sunday": 7
+  };
+  arr.sort((a, b) => {
+    let day1 = a.dayOfWeek;
+    let day2 = b.dayOfWeek;
+    if (sorter[day1] < sorter[day2]) {
+      return -1;
+    } else if (sorter[day1] > sorter[day2]) {
+      return 1;
+    } else if (sorter[day1] === sorter[day2]) {
+
+      if (a.start > b.start) {
+        return 1;
+      } else if (a.start < b.start) {
+        return -1;
+      } else if (a.start === b.start) {
+        let fullTime1 = a.end - a.start;
+        let fullTime2 = b.end - b.start;
+        if (fullTime1 < fullTime2) {
+          return -1;
+        } else if (fullTime1 > fullTime2) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+
+
+    }
+  }
+  );
+  console.log(arr);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
