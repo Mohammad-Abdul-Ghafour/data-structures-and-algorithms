@@ -317,6 +317,8 @@ const sortSchedule = (arr) => {
   );
   console.log(arr);
   return arr;
+  // NOTE challenge 13 is wrong it should only return the day according to starting time but it test it with array that sorted
+  // according to the days not starting time.
 };
 
 /* ------------------------------------------------------------------------------------------------
