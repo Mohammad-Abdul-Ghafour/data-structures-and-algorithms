@@ -337,7 +337,7 @@ const extractChildren = (arr) => {
   // Solution code here...
   // let filterArray = arr.filter(element => element.children ? true : false);
   // console.log(filterArray);
-
+  console.log(arr);
   // NOTE challenge 11 is wrong it should only return only the characters that contain the letter 'a' in their name
   // and it testing with array contain characters don't contain 'a' in them that's happened also in code challenge 4 in
   // challenge 13.
